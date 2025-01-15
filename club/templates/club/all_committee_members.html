@@ -1,0 +1,41 @@
+{% extends "club/base.html" %}
+{% load static %}
+
+{% block content %}
+<h2><center> <br> All Executive Committee Members </center> </h2>
+
+<!-- Table for displaying committee members -->
+<div class="container mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Picture</th>                
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in committee_members %}
+            <tr>
+                <td>{{ member.serial_no }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.position }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.mobile }}</td>
+                <td>
+                    {% if member.image %}
+                        <img src="{{ member.image.url }}" alt="Image" width="100">
+                    {% else %}
+                        <img src="{% static 'images/btvclub_logo.png' %}" alt="Default Image" width="100">
+                    {% endif %}
+                </td>               
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

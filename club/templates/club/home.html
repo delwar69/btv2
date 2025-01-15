@@ -1,0 +1,78 @@
+{% extends "club/base.html" %}
+{% load static %}  <!-- Add this line to load static files -->
+{% block content %}
+<div class="jumbotron text-center">
+    <h1>Welcome to BTV Officers Club</h1>
+    <p>Promoting Excellence and Fellowship</p>
+</div>
+<center>
+<!-- About Section -->
+<div id="about" class="my-5">
+    <h2>About Us</h2>
+    <p>Details about the BTV Officers Club...</p>
+</div>
+</center>
+<center>
+<!-- Notice Board -->
+<div id="notices" class="my-5">
+    <h2>Notice Board</h2>
+    <ul>
+        {% for notice in recent_notices %}
+            <li>
+                {% if notice.pdf_file %}
+                    <a href="{{ notice.pdf_file.url }}" target="_blank">{{ notice.title }}</a> 
+                {% else %}
+                    {{ notice.title }} (No File Attached)
+                {% endif %}
+                - {{ notice.date }}
+            </li>
+        {% empty %}
+            <li>No notices available at the moment.</li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Link to Archived Notices -->
+    <a href="{% url 'archived_notices' %}" class="btn btn-secondary mt-3">View Archived Notices</a>
+</div>
+</center>
+<center>
+<!-- Committee Members -->
+<div id="committee" class="my-5">
+    <h2>Committee Members</h2>
+    <div class="row">
+        {% for member in featured_members %}
+            <div class="col-md-4 col-sm-6 col-12 text-center">
+                {% if member.image %}
+                    <img src="{{ member.image.url }}" class="img-fluid rounded-circle" alt="{{ member.name }}">
+                
+                {% else %}
+                    <img src="{% static '/images/p_profile.jpg' %}" class="img-fluid rounded-circle" alt="Default Profile Image">
+                {% endif %}
+                <h5>{{ member.name }}</h5>
+                <p>{{ member.position }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'all_committee_members' %}" class="btn btn-primary">See All Members</a>
+    </div>
+</div>
+</center>
+<center>
+    <!-- Gallery -->
+    <div id="gallery" class="my-5">
+        <h2>Gallery</h2>
+        <div class="row">
+            {% for image in gallery %}
+                <div class="col-md-4 col-sm-6 col-12 mb-3 text-center">
+                    <img src="{{ image.image.url }}" class="img-fluid" alt="{{ image.title }}">
+                    <p>{{ image.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'all_gallery_images' %}" class="btn btn-primary">See More</a>
+        </div>
+    </div>
+    </center>
+{% endblock %}
