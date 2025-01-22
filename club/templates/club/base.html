@@ -81,41 +81,42 @@
         </nav>
         {% endblock %}
     </header>
+    
 
-     <!-- Carousel -->
-     <div id="clubCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'images/carousel1.jpg' %}" class="d-block w-100" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Welcome to BTV Officers` Club</h5>
-                    <p>Your hub for activities and events.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/carousel2.jpg' %}" class="d-block w-100" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Facilities and Sports</h5>
-                    <p>Explore our range of sports and fitness facilities.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/carousel3.jpg' %}" class="d-block w-100" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Join the Club</h5>
-                    <p>Register now to become a member.</p>
-                </div>
+<!-- Carousel -->
+<div id="clubCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/carousel1.jpg' %}" class="d-block w-100" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Welcome to BTV Officers` Club</h5>
+                <p>Your hub for activities and events.</p>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#clubCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#clubCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="carousel-item">
+            <img src="{% static 'images/carousel2.jpg' %}" class="d-block w-100" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Facilities and Sports</h5>
+                <p>Explore our range of sports and fitness facilities.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/carousel3.jpg' %}" class="d-block w-100" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Join the Club</h5>
+                <p>Register now to become a member.</p>
+            </div>
+        </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#clubCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#clubCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
     <main>
         {% block content %}

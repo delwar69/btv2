@@ -1,0 +1,45 @@
+
+/* Logo Styling */
+.club-logo {
+    width: auto; /* Allow dynamic width adjustment */
+    height: 100px; /* Fixed height to maintain visibility */
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
+    display: block; /* Center horizontally */
+    margin: 0 auto 20px; /* Center and add spacing below */
+    position: relative; /* Position relative to adjust its placement */
+    top: -10px; /* Adjust spacing above the form */
+}
+/* Membership Form Header */
+.membership-form-header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Required Field Asterisk */
+.required-field {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Error Messages */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Checkbox Styling */
+.form-check-input {
+    margin-left: 5px;
+}

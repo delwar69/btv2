@@ -1,0 +1,46 @@
+{% extends "accounts/profile_base.html" %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <div class="logo-container text-center">
+        <img src="{% static 'images/btvclub_logo.png' %}" alt="BTV Club Logo" class="club-logo">
+        <div class="club-title mt-3">
+            <h2 class="bangla-text">বাংলাদেশ টেলিভিশন অফিসার্স ক্লাব</h2>
+            <h2 class="english-text">Bangladesh Television Officers' Club</h2>
+        </div>
+    </div>
+
+    <h3 class="membership-form-header text-center mt-4">Membership Form</h3>
+
+    <form method="post" enctype="multipart/form-data" novalidate class="mt-4">
+        {% csrf_token %}
+        
+        {% for field in form.visible_fields %}
+        <div class="mb-3">
+            <label for="{{ field.id_for_label }}" class="form-label">
+                {{ field.label }}
+                {% if field.field.required %}
+                    <span class="text-danger">*</span>
+                {% endif %}
+            </label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="text-danger mt-1">
+                {{ field.errors|join:", " }}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger mt-3">
+            {{ form.non_field_errors|join:" " }}
+        </div>
+        {% endif %}
+
+        <div class="submit-btn text-center">
+            <button type="submit" class="btn btn-primary w-50 mt-3">Update</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
